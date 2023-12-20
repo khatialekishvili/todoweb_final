@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>ToDo List</h1>
+  <a class="btn btn-success" href="{{ url_for('add_todo') }}" style="background-color: #FF69B4">Add ToDo</a>
+
+  <form method="POST" action="{{ url_for('todo_list') }}">
+  </form>
+
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for todo in todos %}
+        <tr>
+          <td>{{ todo.status }}</td>
+          <td>{{ todo.description }}</td>
+          <td>
+            <a class="btn btn-primary" href="{{ url_for('edit_todo', todo_id=todo.id) }}" style="background-color: #DB7093">Edit</a>
+            <form action="{{ url_for('delete_todo', todo_id=todo.id) }}" method="POST" style="display: inline;">
+              <button class="btn btn-danger" type="submit" style="background-color: 
+              #800020">Delete</button>
+            </form>
+            <form action="{{ url_for('mark_done', todo_id=todo.id) }}" method="POST" style="display: inline;">
+              <button class="btn btn-success" type="submit" style="background-color: #DB7093">Mark as Done</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Include any additional content here -->
+
+{% endblock %}

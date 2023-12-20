@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add ToDo</h1>
+<form method="POST" action="{{ url_for('todo_list') }}">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.description.label(class='form-control-label') }}
+        {{ form.description(class='form-control') }}
+    </div>
+    <button type="submit" class="btn btn-primary" style="background-color: #FF69B4">Save</button>
+    <a class="btn btn-secondary" href="{{ url_for('todo_list') }}" style="background-color: #FFC0CB">Cancel</a>
+</form>
+{% endblock %}

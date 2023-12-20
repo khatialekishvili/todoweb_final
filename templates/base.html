@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+
+    <style>
+        .custom-add-button {
+            background-color: #FF69B4;
+            color: white;
+        }
+        
+        .custom-edit-button {
+            background-color: #FFB6C1;
+            color: white;
+        }
+        
+        .custom-delete-button {
+            background-color: #DB7093;
+            color: white;
+        }
+        
+        .custom-mark-button {
+            background-color: #FF1493;
+            color: white;
+        }
+        
+        .custom-save-button {
+            background-color: #FF69B4;
+            color: white;
+        }
+        
+        .custom-cancel-button {
+            background-color: #FFC0CB;
+            color: white;
+        }
+        
+        .custom-view-button {
+            color: #FF1493;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('todo_list') }}">ToDo App</a>
+    </nav>
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
